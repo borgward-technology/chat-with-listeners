@@ -1,10 +1,12 @@
-import React, { CSSProperties } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import React, { CSSProperties } from 'react';
+// import { useNavigate } from 'react-router-dom';
+
+import { CSSProperties } from "react";
 
 
 const Header = () => {
   // const navigate = useNavigate();
-    const isUserLogin = localStorage.getItem('isUserLogin');
+    // const isUserLogin = localStorage.getItem('isUserLogin');
     return (
      
         <div style={styles.header}> 

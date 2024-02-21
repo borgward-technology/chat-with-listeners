@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Razorpay from "razorpay";
+
 
 
 const SelectDurationPage = () => {
@@ -88,12 +88,13 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
         // order_id: order_id,
         handler: async function (response: { razorpay_payment_id: string; razorpay_order_id: string; razorpay_signature: string; }) {
             const data = {
-                
                 // orderCreationId: order_id,
                 razorpayPaymentId: response.razorpay_payment_id,
                 razorpayOrderId: response.razorpay_order_id,
                 razorpaySignature: response.razorpay_signature,
             };
+
+            console.log("data "+data);
 
             // alert(result.data.msg);
         },
