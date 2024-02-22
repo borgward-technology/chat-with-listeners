@@ -1,39 +1,67 @@
 // import React, { CSSProperties } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const Header = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  // State to track the current page
+  const [currentPage, setCurrentPage] = useState<string>('');
+
+  useEffect(() => {
+    // Extract the current page from the URL
+    const path = location.pathname;
+    setCurrentPage(path.substring(1));
+  }, [location]);
+
+  // Function to toggle between login and signup pages
+  const togglePage = () => {
+    setCurrentPage(currentPage === 'login' ? 'signup' : 'login');
+  };
+
+  console.log('Current Page:', currentPage);
+
+    
     // const isUserLogin = localStorage.getItem('isUserLogin');
     return (
+
+   
      
         <div style={styles.header}> 
-
           <div style={styles.leftSide}>
-            <h3 style={({ fontSize:'20px', color:"white"})}>Chat With Listener</h3>
+            <h3 onClick={()=>navigate('/')} style={({ fontSize:'20px', color:"white"})}>Chat With Listener</h3>
           </div>
-          {/* <div style={styles.rightSide}>
-            <h4 style={({marginRight: '20px'})}>Home</h4>
-            <h4 style={({marginRight: '20px'})}>About</h4>
-          {isUserLogin === 'true' 
-          ? <button onClick={  ()=>{
-             navigate('/login');
-            window.location.reload()
-            // localStorage.setItem('isUserLogin', false);
-            } } style={styles.button}>Logout</button> 
-          : <button onClick={  ()=>{
-            navigate('/login');
-            } } style={styles.button}>Login</button>}
-          </div> */}
+        <div style={styles.rightSide}>
+
+          
+      {currentPage === 'login'  && (
+        <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
+
+          
+          togglePage()
+          navigate("/signup");
+
+        }}> Signup</button>
+      )}
+    
+      {(currentPage === 'signup' || currentPage === '') && (
+        <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
+
+          togglePage()
+          navigate("/login");
 
 
-    <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
-        <div style={{ marginRight: '20px', color:"white" }}>Home</div>
-        <div style={{ marginRight: '20px', color:"white" }}>About</div>
-        <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})}>Login</button>
-        </div>
+        }}>Login</button>
+      )}
+          </div>  
+
+
+   
         </div>
       )  
 }; 
@@ -54,7 +82,8 @@ const Header = () => {
  
       },
       leftSide: {
-        flex: 1,
+        cursor:"pointer",
+        // flex: 1,
         marginLeft:'20px'
       },
       rightSide: {
@@ -102,3 +131,9 @@ const Header = () => {
 //   };
 
 export default Header;
+
+// {/* <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
+// {/* <div style={{ marginRight: '20px', color:"white" }}>Home</div>
+// <div style={{ marginRight: '20px', color:"white" }}>About</div> */}
+// <button  className={currentPage === 'signup' ? 'active' : ''} onClick={()=>navigate("/signup")} style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})}>Signup</button>
+// </div> */}

@@ -17,7 +17,7 @@ const LandingPage = () => {
                         Welcome to chat with listener, your dedicated platform for genuine, confidential conversations. In a world that's always buzzing, we provide  you with a unique  opportunity to express yourself freely, unfiltered.
                     </h5>
 
-                    <button style={({padding:"10px", width:"250px" })} >  <Link to="/chatnow" style={{ textDecoration: 'none', color: 'inherit' }}>Chat Now</Link>  </button>
+                    <Link to="/chatnow" style={{ textDecoration: 'none', cursor:"pointer", color: 'inherit' }}>  <button style={({padding:"10px", width:"250px", color:"white", background:"#171717" })} >  Chat Now </button></Link> 
                 </div>
            </div>
            <div style={{ flex: 1 }}>

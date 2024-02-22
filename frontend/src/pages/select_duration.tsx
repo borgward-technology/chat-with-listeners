@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 
 
@@ -24,19 +23,25 @@ const [selectedMinute, setStateSelectMinute] = useState(-1);
            </div>
 
   
-           {/* <h1>
-            {selectedMinute === -1 ? "" : selectedMinute}
-           </h1> */} 
+         
            <div style={({height:"50px"})}></div>
 
 
            {selectedMinute === -1 
-            ? <div></div> :  <Link style={({padding:"10px", width:"250px" })} to={"/predefined_questions"} ><div onClick={() => displayRazorpay((selectedMinute * 30), "username", 9898654526, "username@gmail.com")}
+            ? <div></div> : 
+
+                <div onClick={() =>   
+
+                    
+                    displayRazorpay((selectedMinute * 30), "username", 9898654526, "username@gmail.com") 
+                }
             //  style={({ display:"flex", padding:"10px 20px", background:"#282c34", color:"white", borderRadius:"8px"})}
-            style={({ padding:"10px 20px",  background:"#282c34", paddingBottom:"10px" , color:"white", borderRadius:"8px", display: "inline-flex",  })}
+            style={({ padding:"10px 20px", cursor:"pointer",  background:"#282c34", paddingBottom:"10px" , color:"white", borderRadius:"8px", display: "inline-flex",  })}
             >
               Pay Rs. {(selectedMinute * 30)} 
-              </div> </Link> }
+              </div> 
+        
+              }
 
              
 
