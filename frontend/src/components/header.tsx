@@ -24,7 +24,6 @@ const Header = () => {
     setCurrentPage(currentPage === 'login' ? 'signup' : 'login');
   };
 
-  console.log('Current Page:', currentPage);
 
     
     // const isUserLogin = localStorage.getItem('isUserLogin');

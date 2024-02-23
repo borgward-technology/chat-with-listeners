@@ -7,7 +7,6 @@ import SelectDurationPage from './pages/select_duration';
 import PredefinedQuestions from './pages/predefined_questions';
 import LoginPage from './pages/auth/login/login_page';
 import SignUpPage from './pages/auth/signup/signup_page';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
   return (
@@ -18,15 +17,10 @@ function App() {
 
       <Routes>
         
-        <GoogleOAuthProvider clientId={'766514279324-0145si2vt29o5kdqgd2fig6lfdud8ue7.apps.googleusercontent.com'} children={undefined}  />
+        {/* <GoogleOAuthProvider clientId={'766514279324-0145si2vt29o5kdqgd2fig6lfdud8ue7.apps.googleusercontent.com'} children={undefined}  /> */}
 
       <Route path='/login' element={<LoginPage/>} />
       <Route path='/signup' element={<SignUpPage/>} />
-
-      
-
-
-
 
         <Route path='/' element={<LandingPageComponent/>} />
           
