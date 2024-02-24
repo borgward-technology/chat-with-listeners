@@ -1,21 +1,43 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import './login_css.css';
 import {auth, provider} from "../../../components/firebase";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { Auth } from "../auth";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {  GoogleLoginButton } from "../google_login_button";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    // const [value, setValue] = useState('');
+  const navigate = useNavigate();
 
-    const handleLogin = () => {
-    
-        console.log('Username:', username);
-        console.log('Password:', password);
+  const [value, setValue] = useState('');
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading ] = useState(false);
+
+
+    const signIn = async (event:any) => {
+        setLoading(true);
+        event.preventDefault();
+        console.log("email   ----     "+email);
+        console.log("password   ----     "+password);
+        try {
+        const response = await signInWithEmailAndPassword(auth, email, password);
+        console.log("user   ------     "+response.user.email);
+        if(response.user.email != null) {
+          localStorage.setItem('email', response.user.email!);
+          navigate("/");
+        }
+        setLoading(false);
+        } catch (err){
+          alert("Error while Login, try again");
+          console.error("err   -----    "+err);
+          setLoading(false);
       };
+
+  }
+
 
       const handleGoogleLogin =  () => {
         console.log("handleGoogleLogin ----------------   ");
@@ -32,21 +54,22 @@ const LoginPage = () => {
           });
       };
 
-    //   useEffect(()=> {
-    //     setValue(localStorage.getItem('email')!);
-    //   })
+      useEffect(()=> {
+        const localStorageEmail = localStorage.getItem('email')!;
+        console.log("localStorageEmail   =-----     "+localStorageEmail);
+      })
     
     return (
         <div className="login-container">
             <h2>Login</h2>
             <form className="login-form">
             <div className="form-group">
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="email">Email:</label>
             <input
                 type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
             />
             </div>
             <div className="form-group">
@@ -58,20 +81,15 @@ const LoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
             />
             </div>
-            <button className="login-button" type="button" onClick={handleLogin}>Login</button>
+            <button className="login-button" type="button" onClick={signIn}>{loading ? "Loading" : "Login"}</button>
 
             <div style={({height:"20px"})}></div>
 
             {/* <button onClick={handleGoogleLogin}> Sign in with Google</button> */}
 
-            <Auth />
+            <GoogleLoginButton />
 
-
-            {/* {value ? <h1>Verified</h1> : <h1>Not Verified</h1>} */}
         </form>
-
-
-
         </div>
     );
 }

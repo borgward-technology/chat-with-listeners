@@ -24,8 +24,7 @@
   }
   
   label {
-    font-weight: bold;
-    
+    font-weight: bold;   
 }
   
   input {
@@ -33,15 +32,23 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
+
+    min-width: 300px;
   }
   
   .login-button {
-    padding: 10px 100px;
+    padding: 10px 10px;
+    max-width: 350px;
+    min-width: 260px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
     transition: background-color 0.3s ease;
   }
   

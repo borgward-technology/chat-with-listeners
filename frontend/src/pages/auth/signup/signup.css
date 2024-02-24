@@ -1,19 +1,43 @@
 /* SignupForm.css */
 .signup-container {
-    width: 100%;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   
+.form-container {
+  
+  padding: 10px 0;
+  margin: 0 auto; /* Center the form horizontally */
+  overflow: hidden; /* Hide any overflowing content */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+}
+
+  .form-scrollable {
+   
+    max-height: 400px; /* Maximum height for scrolling */
+    overflow-y: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+  }
+
+
+ 
+  .form-scrollable::-webkit-scrollbar {
+    display: none; /* WebKit */
+   } 
+
   .signup-form {
-    width: 100%;
+    
     max-width: 400px;
     padding: 20px;
-    /* border: 1px solid #ccc; */
-    /* border-radius: 5px; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
   
   .form-group {
@@ -21,6 +45,7 @@
   }
   
   label {
+ 
     font-weight: bold;
   }
   
@@ -30,20 +55,41 @@
     border-radius: 5px;
     width: calc(100% - 16px); /* Subtract padding to maintain consistent width */
     margin-bottom: 8px;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
   .signup-button {
-    padding: 10px;
+    padding: 10px 50px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
   }
   
   .signup-button:hover {
     background-color: #0056b3;
   }
-  
+
+.password-input-container {
+
+  position: relative;
+
+  border-radius: 5px;
+  width: calc(100% - 16px); 
+
+}
+
+
+.toggle-password-button {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  border: none;
+  background: #fff;
+  cursor: pointer;
+}

@@ -25,6 +25,13 @@ const Header = () => {
   };
 
 
+  const [email, setEmail] = useState("");
+
+  useEffect(()=> {
+    const localStorageEmail = localStorage.getItem('email')!;
+    console.log("localStorageEmail  header   =-----     "+localStorageEmail);
+    setEmail(localStorageEmail);
+  })
     
     // const isUserLogin = localStorage.getItem('isUserLogin');
     return (
@@ -35,32 +42,22 @@ const Header = () => {
           <div style={styles.leftSide}>
             <h3 onClick={()=>navigate('/')} style={({ fontSize:'20px', color:"white"})}>Chat With Listener</h3>
           </div>
-        <div style={styles.rightSide}>
-
-          
-      {currentPage === 'login'  && (
-        <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
-
-          
-          togglePage()
-          navigate("/signup");
-
-        }}> Signup</button>
-      )}
-    
-      {(currentPage === 'signup' || currentPage === '') && (
-        <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
-
-          togglePage()
-          navigate("/login");
-
-
-        }}>Login</button>
-      )}
-          </div>  
-
-
-   
+    {email === "" ? 
+          <div style={styles.rightSide}>
+          {currentPage === 'login'  && (
+            <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
+              togglePage()
+              navigate("/signup");
+            }}> Signup</button>
+          )}
+          {(currentPage === 'signup' || currentPage === '') && (
+            <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
+              togglePage()
+              navigate("/login");
+            }}>Login</button>
+          )}
+          </div>   :   ( currentPage === 'login' || currentPage === 'signup' ? <div></div> : <div style={({color:"white"})}>{email}</div>)
+          } 
         </div>
       )  
 }; 
