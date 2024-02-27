@@ -1,0 +1,79 @@
+.main_container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start;  */
+     align-items: center;
+    /* background-color: aqua; */
+    height: 90vh;
+    width: 100%;
+}
+
+.chat_list_container{
+    padding: 10px 10px;
+    overflow-y: scroll; 
+    border: 1px solid grey;
+    border-radius: 25px;
+    height: 62vh;
+    width: 80vw;
+    background-color: transparent;
+}
+
+.chat_list_container::-webkit-scrollbar {
+    display: none;
+  }
+
+.list_item {
+    margin: 10px 10px;
+}
+
+.chat_box_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .text-field {
+    flex: 1; /* Take remaining space */
+    padding: 10px;
+    margin-right: 10px; /* Add margin between text field and button */
+  }
+  
+  .send-button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    margin: 8px 0px;
+    padding: 10px 30px;
+  }
+  
+  /* Media query for responsive layout */
+  @media (max-width: 600px) {
+    .row {
+      flex-direction: column; /* Switch to column layout */
+    }
+  
+    .text-field {
+      margin-right: 0; /* Remove margin in column layout */
+      margin-bottom: 10px; /* Add margin between text field and button */
+    }
+  }
+
+
+
+
+  .list_item {
+    background-color: aqua;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0px 8px;
+  }
