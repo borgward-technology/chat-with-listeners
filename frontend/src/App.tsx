@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [isAuthenticated, setAuthentication] = useState(false);
+  // const [isAuthenticated, setAuthentication] = useState(false);
 
   
   const [email, setEmail] = useState("");
@@ -32,9 +32,12 @@ function App() {
       
         <Route path="/" element={  <LandingPageComponent />} />
     
-        <Route path="/home" element={ email === "" ? < Navigate to="/home"/> : <LandingPageComponent />} />
- 
-        <Route path="/login" element={ email === ""  ?  <LoginPage /> : <Navigate to="/login"/> } />
+        <Route path="/home" element={<LandingPageComponent />} /> 
+        {/* element={ email === "" ? < Navigate to="/home"/> : <LandingPageComponent />}
+  */}
+        <Route path="/login"  element={<LoginPage /> }/>
+
+        {/* element={ email === ""  ?  <LoginPage /> : <Navigate to="/login"/> } */}
 
         <Route path="/signup" element={<SignUpPage />} />
     

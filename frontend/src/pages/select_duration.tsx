@@ -77,7 +77,6 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
         alert("Razorpay SDK failed to load. Are you online?");
         return;
     }
-  
 
     const options = {
         key: "rzp_test_e9rJ7RKXychhxc", // Enter the Key ID generated from the Dashboard
@@ -108,6 +107,7 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
             color: "#61dafb",
         },
     };
+
     const paymentObject = new (window as any).Razorpay(options);
 
     const result = await axios.post(`http://localhost:5000/payment/${paisa}`,  {

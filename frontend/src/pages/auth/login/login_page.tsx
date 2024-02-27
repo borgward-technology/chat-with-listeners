@@ -1,7 +1,7 @@
 import {  useEffect, useState } from "react";
 import './login_css.css';
-import {auth, provider} from "../../../components/firebase";
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {auth} from "../../../components/firebase";
+import {  signInWithEmailAndPassword, } from "firebase/auth";
 import {  GoogleLoginButton } from "../google_login_button";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const LoginPage = () => {
 
   const navigate = useNavigate();
 
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -39,20 +39,20 @@ const LoginPage = () => {
   }
 
 
-      const handleGoogleLogin =  () => {
-        console.log("handleGoogleLogin ----------------   ");
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            const user = result.user;
-            console.log("user ----------------   "+user);
-          }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.customData.email;
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            console.log("error ----------------   "+error);
-          });
-      };
+      // const handleGoogleLogin =  () => {
+      //   console.log("handleGoogleLogin ----------------   ");
+      //   signInWithPopup(auth, provider)
+      //     .then((result) => {
+      //       const user = result.user;
+      //       console.log("user ----------------   "+user);
+      //     }).catch((error) => {
+      //       const errorCode = error.code;
+      //       const errorMessage = error.message;
+      //       const email = error.customData.email;
+      //       const credential = GoogleAuthProvider.credentialFromError(error);
+      //       console.log("error ----------------   "+error);
+      //     });
+      // };
 
       useEffect(()=> {
         const localStorageEmail = localStorage.getItem('email')!;

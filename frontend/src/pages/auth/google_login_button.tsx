@@ -1,7 +1,6 @@
 
 import { auth , provider} from "../../components/firebase";
-import { signInWithPopup, signOut } from "firebase/auth";
-import { useState } from "react";
+import { signInWithPopup } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
 
@@ -25,13 +24,13 @@ const navigate = useNavigate();
     }
   };
 
-  const logOut = async () => {
-    try {
-    await signOut(auth);
-    } catch (err){
-      console.error(err);
-    }
-  };
+  // const logOut = async () => {
+  //   try {
+  //   await signOut(auth);
+  //   } catch (err){
+  //     console.error(err);
+  //   }
+  // };
 
   return (
     <div>

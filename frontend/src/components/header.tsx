@@ -2,7 +2,7 @@
 // import { useNavigate } from 'react-router-dom';
 
 import { CSSProperties, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 
 const Header = () => {
