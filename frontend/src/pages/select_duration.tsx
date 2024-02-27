@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 const SelectDurationPage = () => {
+
+    const navigate = useNavigate();
 
 const [selectedMinute, setStateSelectMinute] = useState(-1);
  
@@ -74,14 +77,7 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
         alert("Razorpay SDK failed to load. Are you online?");
         return;
     }
-    const result = await axios.post(`http://localhost:5000/payment/${paisa}`,  {
-        "amount" : paisa,
-    });
-
-    if (!result) {
-        alert("Server error. Are you online?");
-        return;
-    }
+  
 
     const options = {
         key: "rzp_test_e9rJ7RKXychhxc", // Enter the Key ID generated from the Dashboard
@@ -113,6 +109,19 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
         },
     };
     const paymentObject = new (window as any).Razorpay(options);
+
+    const result = await axios.post(`http://localhost:5000/payment/${paisa}`,  {
+        "amount" : paisa,
+    });
+
+    if (!result) {
+        alert("Server error. Are you online?");
+        return;
+    } else{
+        navigate("/predefinedquestions")
+    }
+
+
     paymentObject.open();
 }
 
