@@ -3,11 +3,12 @@ import './signup.css';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../components/firebase';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
+import {db} from "../../../components/firebase";
+import { doc, setDoc } from 'firebase/firestore';
 
 const SignUpPage = () =>{
 
     const navigate =  useNavigate();
-
 
     const [fullName, setFullName] = useState('');
     const [email, setEmailName] = useState('');
@@ -23,20 +24,20 @@ const SignUpPage = () =>{
     const signUp = async (event:any) => {
         setLoading(true);
         event.preventDefault();
-
-        console.log("email   ----     "+email);
-        console.log("password   ----     "+password);
-
-        console.log('Full Name:', fullName);
-        console.log('Mobile:', mobileNumber);
-        console.log('City:', city);
-        console.log('State:', state);
-        console.log('Country:', country);
         
         try {
         const user = await createUserWithEmailAndPassword(auth, email, password);
-        console.log("user   ------     "+user.user.email);
+        const userDocRef = doc(db, "users", user.user.uid);
         if(user.user.email != null) {
+            await setDoc(userDocRef, {
+                "uid":user.user.uid,
+                "email" : user.user.email,
+                "mobile" : mobileNumber,
+                'city': city,
+                'State': state,
+                'country': country,
+              });
+              console.log("Document written with ID: ", userDocRef.id);
             navigate("/");
         }   
         setLoading(false);

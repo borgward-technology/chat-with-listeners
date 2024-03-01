@@ -8,6 +8,7 @@ import PredefinedQuestions from './pages/predefined_questions/predefined_questio
 import LoginPage from './pages/auth/login/login_page';
 import SignUpPage from './pages/auth/signup/signup_page';
 import ChatBoxComponent from './pages/chat_box_page/chat_box_page';
+import PersonGrid from './pages/select_person_to_talk/select_person_to_talk';
 // import { useEffect, useState } from 'react';
 
 function App() {
@@ -49,6 +50,8 @@ function App() {
         <Route path="/predefined_questions" element={<PredefinedQuestions />} />
 
         <Route path='/chatbox' element={<ChatBoxComponent/>}/>
+
+        <Route path='/selecttype' element={<PersonGrid />}/>
 
       </Routes>
     </Router>

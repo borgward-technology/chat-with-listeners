@@ -3,8 +3,8 @@ import "./chat_box_page.css";
 
 
 type DateTime = {
-    date: Date; // Date object representing the date
-    time: string; // String representing the time (e.g., "12:00 PM")
+    date: Date;
+    time: string; 
 };
 
 interface ChatContent {
@@ -21,32 +21,23 @@ const ChatBoxComponent = () => {
     }
 
     const addChatToList = () => {
-
         const currentDate: Date = new Date();
-        
         const currentTime: Date = new Date();
-        
         const currentHours: number = currentTime.getHours();
         const currentMinutes: number = currentTime.getMinutes();
         const currentSeconds: number = currentTime.getSeconds();
-
         console.log(`hourse -> ${currentHours} Minutes -> ${currentMinutes} seconds -> ${currentSeconds}`)
-
         const dateNow : DateTime = {
             date : currentDate,
             time : `${currentHours}:${currentMinutes}`,
         }
-        
         const newMessage : ChatContent = {
             message: inputValue,
             sendAt:dateNow
         }
-
         console.log(`newMessage   ->>    ${newMessage}`);
-
         setAddToChatList([...chatList, newMessage]);
         setText('');
-
     }
 
         // Function to handle Enter key press
@@ -81,7 +72,7 @@ const ChatBoxComponent = () => {
                  ?  <div style={({display:"flex", fontWeight:"700", justifyContent:"center", alignItems:"center", alignContent:"center", height:"60vh"})}>No Message yet, please start Chatting</div>  
                  :  chatList.map((item, index) => (
                         <div key={index} className="list_item">{  item.message}</div>
-                    ))}
+                ))}
                 </div>
 
                 <div className="container">
