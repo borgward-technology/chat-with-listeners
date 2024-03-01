@@ -1,15 +1,59 @@
 import axios from "axios";
-import { useState } from "react";
+import { doc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "../components/firebase";
+import { getDoc } from "firebase/firestore/lite";
 import { useNavigate } from "react-router-dom";
+interface UserInterface {
+    username : string;
+    email : string;
+    phoneNumber : number;
+}
 
+const SelectDurationPage =   () => {
 
-
-const SelectDurationPage = () => {
-
+    const [selectedMinute, setStateSelectMinute] = useState(-1);
+    const [userInformation, setUserInformation] = useState<UserInterface | null>(null);
+  
     const navigate = useNavigate();
 
-const [selectedMinute, setStateSelectMinute] = useState(-1);
- 
+    useEffect(() => {
+        const fetchUser  = async ()  =>  {
+            try {
+                const userId = "JecWNDppYTcGD4GPPbp0WeBZlyg2";
+                const userDocRef = doc(db, 'users', userId);
+                const userDocSnapshot = await getDoc(userDocRef);
+
+                if (userDocSnapshot.exists()) {
+                    const userData = userDocSnapshot.data();
+                    console.log("USER INFORMATION  - ----     "+userData);
+
+                    const userInformation : UserInterface = {
+                        username: userData['username'],
+                        phoneNumber: userData['mobile'],
+                        email: userData['email'],
+                    };
+
+                    console.log("USER INFORMATION: ", userInformation);
+
+                    setUserInformation(userInformation);
+
+                    return userInformation;
+                } else {
+                console.log('User not found.');
+                return null;
+
+                }
+            } catch (error) {
+                console.error('Error fetching user:', error);
+                return null;
+            }
+  
+    };
+  
+    fetchUser();
+    }, []);
+
     return (
         <div style={({display:"flex", flexDirection:"column", justifyContent: "center", height: "80vh", alignItems:"center"})}>
 
@@ -24,33 +68,20 @@ const [selectedMinute, setStateSelectMinute] = useState(-1);
            <DurationCardComponent onClick={() => {setStateSelectMinute(120)}} minute={120} />
            <DurationCardComponent onClick={() => {setStateSelectMinute(145)}} minute={145} />
            </div>
-
-  
-         
            <div style={({height:"50px"})}></div>
-
-
            {selectedMinute === -1 
             ? <div></div> : 
-
-                <div onClick={() =>   
-
-                    
-                    displayRazorpay((selectedMinute * 30), "username", 9898654526, "username@gmail.com") 
+                <div onClick={() =>              
+                    displayRazorpay((selectedMinute * 30), userInformation?.username, userInformation?.email, userInformation?.phoneNumber)
                 }
             //  style={({ display:"flex", padding:"10px 20px", background:"#282c34", color:"white", borderRadius:"8px"})}
             style={({ padding:"10px 20px", cursor:"pointer",  background:"#282c34", paddingBottom:"10px" , color:"white", borderRadius:"8px", display: "inline-flex",  })}
             >
               Pay Rs. {(selectedMinute * 30)} 
               </div> 
-        
-              }
-
-             
-
+            }
         </div>
     )
-    
     function loadScript(src: string) {
         return new Promise((resolve) => {
             const script = document.createElement("script");
@@ -65,7 +96,7 @@ const [selectedMinute, setStateSelectMinute] = useState(-1);
         });
     }
 
-async function displayRazorpay(amt : number, username : string, contactNumber : number, email : string) {
+async function displayRazorpay(amt : number,  username : string | undefined, email: string | undefined, phoneNumber:number | undefined) {
 
     const paisa = amt * 100;
 
@@ -77,9 +108,9 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
         alert("Razorpay SDK failed to load. Are you online?");
         return;
     }
-
+    //TODO  get username and password information - create function
     const options = {
-        key: "rzp_test_e9rJ7RKXychhxc", // Enter the Key ID generated from the Dashboard
+        key: "rzp_live_LnEKJ9oG6oOIo7", // Enter the Key ID generated from the Dashboard
         amount: paisa,
         currency: "INR",
         name: username,
@@ -93,15 +124,13 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
                 razorpayOrderId: response.razorpay_order_id,
                 razorpaySignature: response.razorpay_signature,
             };
-
             console.log("data "+data);
-
             // alert(result.data.msg);
         },
         prefill: {
-            name: username,
+            name:  username,  
             email: email,
-            contact: contactNumber,
+            contact: phoneNumber,
         }, 
         theme: {
             color: "#61dafb",
@@ -110,19 +139,20 @@ async function displayRazorpay(amt : number, username : string, contactNumber : 
 
     const paymentObject = new (window as any).Razorpay(options);
 
+    paymentObject.open();
+
     const result = await axios.post(`http://localhost:5000/payment/${paisa}`,  {
         "amount" : paisa,
     });
-
-    if (!result) {
-        alert("Server error. Are you online?");
+    
+    console.log("result ----------   "+ result);
+    if (result.status !== 200) {
+        alert("Payment failed");
+        navigate("/")
         return;
     } else{
-        navigate("/predefinedquestions")
+        navigate("/chatbox")
     }
-
-
-    paymentObject.open();
 }
 
 }
@@ -137,14 +167,10 @@ interface HoursAndMinutes {
     mn : number;
 }
 
-
 const getHoursAndNumbersFromMinutes = (minutes : number) : HoursAndMinutes  =>  {
-
     const hr = Math.floor(minutes / 60);
     const mn = minutes % 60;
-
     return { hr, mn };
-
 };
 
 
