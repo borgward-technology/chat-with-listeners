@@ -4,11 +4,10 @@ import { useNavigate } from "react-router-dom";
 const ChatNowPage = () => {
 
     const navigate = useNavigate();
-
     const handleChatButtonClick = () => {
         navigate("/selecttype");
     }
-    
+
     return (
         <div style={({display:"flex", flexDirection:"column", justifyContent: "center", height: "80vh", alignItems:"center"})}>
             <h1 style={({color:"black"})}> Please Select below option of Conversation</h1>

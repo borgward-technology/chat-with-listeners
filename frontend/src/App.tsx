@@ -9,6 +9,9 @@ import LoginPage from './pages/auth/login/login_page';
 import SignUpPage from './pages/auth/signup/signup_page';
 import ChatBoxComponent from './pages/chat_box_page/chat_box_page';
 import PersonGrid from './pages/select_person_to_talk/select_person_to_talk';
+import AboutUs from './pages/about/about_us';
+import ContactUs from './pages/contact/contact_us';
+import Footer from './components/footer';
 // import { useEffect, useState } from 'react';
 
 function App() {
@@ -35,6 +38,11 @@ function App() {
         <Route path="/" element={  <LandingPageComponent />} />
     
         <Route path="/home" element={<LandingPageComponent />} /> 
+
+        <Route path="/about" element={<AboutUs />} /> 
+
+        <Route path="/contact" element={<ContactUs />} /> 
+
         {/* element={ email === "" ? < Navigate to="/home"/> : <LandingPageComponent />}
   */}
         <Route path="/login"  element={<LoginPage /> }/>
@@ -54,6 +62,7 @@ function App() {
         <Route path='/selecttype' element={<PersonGrid />}/>
 
       </Routes>
+      <Footer />
     </Router>
   );
 }

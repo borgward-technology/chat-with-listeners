@@ -30,7 +30,13 @@ const Header = () => {
   useEffect(()=> {
     const localStorageEmail = localStorage.getItem('email')!;
     console.log("localStorageEmail  header   =-----     "+localStorageEmail);
+
+    console.log("email  1   =-----     "+email);
+
     setEmail(localStorageEmail);
+
+    console.log("email  2   =-----     "+email);
+
   })
     
     // const isUserLogin = localStorage.getItem('isUserLogin');
@@ -42,28 +48,62 @@ const Header = () => {
           <div style={styles.leftSide}>
             <h3 onClick={()=>navigate('/')} style={({ fontSize:'20px', color:"white"})}>Chat With Listener</h3>
           </div>
-    {email === "" ? 
+
+
+
           <div style={styles.rightSide}>
-          {currentPage === 'login'  && (
-            <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
-              togglePage()
-              navigate("/signup");
-            }}> Signup</button>
-          )}
-          {(currentPage === 'signup' || currentPage === '') && (
-            <button style={({paddingLeft:"20px", paddingRight:"20px", paddingTop:"10px", paddingBottom:"10px"})} onClick={()=> {
-              togglePage()
-              navigate("/login");
-            }}>Login</button>
-          )}
-          </div>   :   ( currentPage === 'login' || currentPage === 'signup' ? <div></div> : <div style={({color:"white"})}>{email}</div>)
-          } 
+
+              <h4 onClick={() => navigate('/')} style={styles.headerItems}>Home</h4>
+              <h4 onClick={() => navigate('/about')} style={styles.headerItems} >About Us</h4>
+              <h4 onClick={() => navigate('/contact')} style={styles.headerItems} >Contact</h4>
+
+              {email === "" ? (
+                currentPage === 'login' ? (
+                  <button
+                    style={{ paddingLeft: "20px", paddingRight: "20px", paddingTop: "10px", paddingBottom: "10px" }}
+                    onClick={() => {
+                      togglePage();
+                      navigate("/signup");
+                    }}
+                  >
+                    SignUp
+                  </button>
+                ) :  currentPage === "signup" ? ( <button
+                  style={{ paddingLeft: "20px", paddingRight: "20px", paddingTop: "10px", paddingBottom: "10px" }}
+                  onClick={() => {
+                    togglePage();
+                    navigate("/login");
+                  }}>
+                  Login
+                </button> ) : <div></div>
+              ) 
+              : <div style={{ color: "white",  fontSize:22 , fontWeight:'bold'  }}>{email}</div>
+              // (
+              //   (currentPage === 'signup' || currentPage === '') && (
+              //     <button
+              //       style={{ paddingLeft: "20px", paddingRight: "20px", paddingTop: "10px", paddingBottom: "10px" }}
+              //       onClick={() => {
+              //         togglePage();
+              //         navigate("/login");
+              //       }}>
+              //       Login
+              //     </button>
+              //   )
+              // )
+              }
+
+              {/* {currentPage !== 'login' && currentPage !== 'signup' && email !== "" && (
+                <div style={{ color: "white" }}>{email}</div>
+              )} */}
+            </div> 
         </div>
       )  
 }; 
 
 
     const styles : Record<string, CSSProperties> = {
+
+
       header: {
         background:'#171717',
         height:'50px',
@@ -77,16 +117,23 @@ const Header = () => {
         zIndex: 1000,
  
       },
+      headerItems : {
+        cursor:"pointer",
+        padding: '15px',
+      },
       leftSide: {
         cursor:"pointer",
         // flex: 1,
         marginLeft:'20px'
       },
       rightSide: {
+        color:'white',
         display: 'flex',
-        flex: 0,
-        textAlign: 'right',
+        alignItems: 'center',
+        justifyContent: 'flex-end', // Align items to the right
+        gap: '10px', // Adjust the space between items
       },
+     
       button: {
         padding:'20px', 
         marginRight:'30px',  

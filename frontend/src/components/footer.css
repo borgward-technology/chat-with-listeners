@@ -1,0 +1,46 @@
+.footer_class{ 
+    background:black; 
+    color:white; 
+    display:flex;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    padding: 10px; /* Adjust the padding as needed */
+    display: flex;
+    justify-content: space-between;/* Center align the icons horizontally */
+    align-items: center; 
+}
+
+.footer_content {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.footer_HAC{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    gap: 20px;
+    align-items: center; 
+}
+
+.footer_item {
+    font-size: 12;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.all_logos{
+    margin: 0 20px;
+}
+
+.logo {
+    cursor: pointer;
+    width: 40px; 
+    height: 40px;
+    margin: 0 10px;
+    object-fit: cover; 
+    background-color: aquamarine;
+    border-radius: 10%;
+}
