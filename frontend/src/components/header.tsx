@@ -56,6 +56,8 @@ const Header = () => {
               <h4 onClick={() => navigate('/')} style={styles.headerItems}>Home</h4>
               <h4 onClick={() => navigate('/about')} style={styles.headerItems} >About Us</h4>
               <h4 onClick={() => navigate('/contact')} style={styles.headerItems} >Contact</h4>
+              <h4 onClick={() => navigate('/howitworks')} style={styles.headerItems} >How It Works</h4>
+
 
               {email === "" ? (
                 currentPage === 'login' ? (
@@ -105,6 +107,7 @@ const Header = () => {
 
 
       header: {
+        margin: 0,
         background:'#171717',
         height:'50px',
         display: 'flex',
@@ -115,7 +118,6 @@ const Header = () => {
         position: 'sticky',
         top: 0,
         zIndex: 1000,
- 
       },
       headerItems : {
         cursor:"pointer",

@@ -1,0 +1,17 @@
+.tnc_main{
+    /* height: 75.5vh; */
+    max-width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.tnc_label{
+    margin: 20px 0;
+    font-weight: 500;
+    font-size: 20;
+}
+

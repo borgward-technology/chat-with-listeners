@@ -1,29 +1,32 @@
 .contact_us_main{
-    height: 88.5vh;
-    max-width: 70%;
+    /* max-width: 70%; */
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     justify-content: center;
     margin: 0 auto;
+    padding: 50px;
+}
+
+.image-container {
+    flex: 1;
+    margin-right: 30px;
+  }
+  
+.image-container img {
+    max-width: 100%;
+    height: auto;
 }
 
 .input_field{
     border-radius: 4px; 
-    max-width: 40%;
     padding: 8px;
     margin-bottom: 16px; 
 }
 
 .contact_us_content{
-    height: 74.5vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    margin: 0 auto;
+    flex: 1;
 }
 
 .label_and_input {
@@ -33,14 +36,7 @@
 }
 
 .input_field_message{
-    /* display: flex;
-    margin: 8px;
-    border-radius: 4px; 
-    padding: 8px;
-    margin-bottom: 16px; 
-    height:"100px",  */
     border-radius: 8px;
-   width: 300px;
     padding: 8px;
     margin: 16px 0px;
     height: 100px;
@@ -52,7 +48,6 @@
     cursor: pointer;
     background-color: black;
     color: white;
-    width: 100%;
+    width: 103%;
     padding: 12px 0;
-
 }

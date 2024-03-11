@@ -12,23 +12,11 @@ import PersonGrid from './pages/select_person_to_talk/select_person_to_talk';
 import AboutUs from './pages/about/about_us';
 import ContactUs from './pages/contact/contact_us';
 import Footer from './components/footer';
-// import { useEffect, useState } from 'react';
+import TermsAndConditions from './pages/terms_and_conditions/terms_and_conditions';
+import HowItWorks from './pages/how_it_works/how_it_works';
 
 function App() {
 
-  // const [isAuthenticated, setAuthentication] = useState(false);
-
-  
-  // const [email, setEmail] = useState("");
-
-  // useEffect(()=> {
-  //   const localStorageEmail = localStorage.getItem('email')!;
-  //   console.log("localStorageEmail  header   =-----     "+localStorageEmail);
-  //   setEmail(localStorageEmail);
-  // })
-    
-
-  
   return (
     <Router>
       <Header />
@@ -39,7 +27,10 @@ function App() {
     
         <Route path="/home" element={<LandingPageComponent />} /> 
 
-        <Route path="/about" element={<AboutUs />} /> 
+        <Route path="/about" element={<AboutUs />} />
+
+        <Route path="/termsandconditions" element={<TermsAndConditions />} /> 
+
 
         <Route path="/contact" element={<ContactUs />} /> 
 
@@ -52,6 +43,9 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
     
         <Route path="/chatnow" element={<ChatNowPage />} />
+
+        <Route path="/howitworks" element={<HowItWorks />} />
+
      
         <Route path="/selectduration" element={<SelectDurationPage />} />
       

@@ -1,10 +1,23 @@
-.about_main {
-    height: 74.5vh;
-    max-width: 70%;
+
+
+.image-with-content {
+    height: 100vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    margin: 0 auto;
+    padding: 50px;
 }
+  
+  .image-container {
+    flex: 1;
+    margin-right: 30px; /* Adjust as needed */
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .content-container {
+    flex: 1;
+  }
+  

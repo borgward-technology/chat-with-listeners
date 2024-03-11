@@ -1,0 +1,23 @@
+
+
+.image-with-content {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+
+.image-container {
+  flex: 1;
+  margin-right: 30px; /* Adjust as needed */
+}
+
+.image-container img {
+  
+  max-width: 100%;
+  height: auto;
+}
+
+.content-container {
+  flex: 1;
+}

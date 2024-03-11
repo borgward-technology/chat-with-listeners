@@ -1,5 +1,4 @@
-import gmailLogo from "../assets/gmail_logo.png";
-import metaLogo from "../assets/facebook_logo.jpg";
+import gmailLogo from "../assets/gmail_logo.png"
 import instLogo from "../assets/instagram_logo.jpg";
 import ytLogo from "../assets/yt_logo.jpg";
 
@@ -11,6 +10,11 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const redirectToYouTubeChannel = () => {
+    const youtubeChannelURL = 'https://www.youtube.com/channel/UCK7el2hWiSAbrDkvfkEIZgg';
+    window.open(youtubeChannelURL, '_blank');
+  };
+
+  const redirectToTermsAndConditions = () => {
     const youtubeChannelURL = 'https://www.youtube.com/channel/UCK7el2hWiSAbrDkvfkEIZgg';
     window.open(youtubeChannelURL, '_blank');
   };
@@ -43,6 +47,10 @@ const Footer = () => {
         <h4 className="footer_item" onClick={()=>{navigate("/")}}>Home</h4>
         <h4 className="footer_item" onClick={()=>{navigate("/about")}}>About Us</h4>
         <h4 className="footer_item" onClick={()=>{navigate("/contact")}}>Contact</h4>
+        <h4 className="footer_item" onClick={()=>{navigate("/termsandconditions")}}>Terms And Conditions</h4>
+        <h4 className="footer_item" onClick={()=>{navigate("/howitworks")}}>How it Works</h4>
+
+
        </div>
         {/* <h4 className="footer_item" onClick={()=>{navigate("/")}}>Contact</h4> */}
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../contact/contact_us.css";
+import contact_us from "../../assets/cwl_3.jpeg";
 
 const ContactUs = () => {
 
@@ -12,9 +13,12 @@ const ContactUs = () => {
     return (    
         <div className="contact_us_main">
 
-            {/* <img> </img> */}
+            <div className="image-container">
+                <img src={contact_us} alt="contact_us_img" />
+            </div>
 
             <div className="contact_us_content">
+
                 <h4>Contact</h4>
               
                     <div className="label_and_input">
@@ -32,9 +36,9 @@ const ContactUs = () => {
                         <input type="tel" id="phone" className="input_field" name="phone" value={phoneNo} onChange={(e) => {setPhoneNo(e.target.value)}}/> 
                     </div>
 
-                    <div style={({display:"flex",  flexDirection:"column", alignItems:"start", width:"320px"})}>  
+                    <div className="label_and_input"> 
                         <label htmlFor="message">Message:</label>
-                        <textarea id="message" name="message" rows={5} className="input_field_message" value={message} onChange={(e) => {setMessage(e.target.value)}}></textarea> 
+                        <textarea style={({width:"100%"})} rows={5} id="message" className="input_field_message"  name="message" value={message} onChange={(e) => {setMessage(e.target.value)}}/> 
                     </div>
 
                     <div className="submit_button" onClick={() => {

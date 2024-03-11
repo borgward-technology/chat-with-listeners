@@ -1,6 +1,6 @@
-import connectImageLive from "../assets/connect_share_reliev.jpg";
-import freedomSpeakMind from "../assets/freedom_speak_mind.jpg";
-import chatBoxImage from "../assets/cha_box.jpg";
+import connectImageLive from "../assets/cwl_4.jpeg";
+import freedomSpeakMind from "../assets/cwl_5.jpeg";
+import chatBoxImage from "../assets/cwl_2.jpeg";
 
 
 const LandingPageContentTwo = () => {
@@ -9,8 +9,6 @@ const LandingPageContentTwo = () => {
 
 <ContentWithImage heading={ 'Connect, Share, Relieve:'} subheading={'At Chat With Listener, we believe in the power of conversation. After a simple payment process, you gain access to a dedicated chat session, where you can open up without any reservations. Your time is precious, and so is your voice – let it be heard.'
                                 } imgUrl={connectImageLive}/>
-
-
 
 
                     <div style={({display: "flex", justifyContent: 'space-between', maxWidth: "100%", alignItems: 'center' })}>
