@@ -20,7 +20,6 @@ const LandingPageContentTwo = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup function to remove the event listener when the component unmounts
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -57,36 +56,6 @@ const LandingPageContentTwo = () => {
 
 
 
-
-
-// {
-//     return (
-//     <div style={({ backgroundColor:"teal", display: "flex", justifyContent: 'space-between', maxWidth: "100%", alignItems: 'center', marginTop:'150px', marginBottom:'150px' })}>
-//                         <div style={{flex:2}}>
-//                             <div style={({flexDirection:"column", padding:"50px"})}>
-//                                 <h1>
-//                                 {heading}
-//                                 </h1>
-//                                 <h3>
-//                                 {subheading}
-//                                </h3>
-                    
-//                             </div>
-//                     </div>
-//                     <div style={{ flex: 1 ,  backgroundColor:"red", alignContent:'center', justifyContent:"center", alignItems:'center'}}>
-//                             <div>
-//                                 <img src={imgUrl} alt='landing_img' style={( {
-//                                     margin: '0 5px', 
-//                                     maxWidth: '60%',
-//                                     maxHeight:'50%',
-//                                     // height: 'auto',
-//                                 })}/>
-//                             </div>
-//                         </div>
-//                     </div>
-//         )
-
-// }
 
 
 

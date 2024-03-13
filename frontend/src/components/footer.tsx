@@ -80,36 +80,5 @@ const Footer = () => {
   );
 }
 
-// const Footer = () => {
-
-
-
-
-//   return (
-
-//     <div className="footer_class">
-
-//       <div  className="footer_content">
-//         <h2>Chat With Listener</h2>
-//        <div className="footer_HAC">
-//         <h4 className="footer_item" onClick={()=>{navigate("/")}}>Home</h4>
-//         <h4 className="footer_item" onClick={()=>{navigate("/about")}}>About Us</h4>
-//         <h4 className="footer_item" onClick={()=>{navigate("/contact")}}>Contact</h4>
-//         <h4 className="footer_item" onClick={()=>{navigate("/termsandconditions")}}>Terms And Conditions</h4>
-//         <h4 className="footer_item" onClick={()=>{navigate("/howitworks")}}>How it Works</h4>
-
-
-//        </div>
-//         {/* <h4 className="footer_item" onClick={()=>{navigate("/")}}>Contact</h4> */}
-
-//       </div>
-
-
-
-//     </div>
-    
-
-//   )
-// };
 
 export default Footer;

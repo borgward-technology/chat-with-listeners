@@ -10,7 +10,6 @@ const LoginPage = () => {
 
   const navigate = useNavigate();
 
-  // const [value, setValue] = useState('');
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -39,20 +38,6 @@ const LoginPage = () => {
   }
 
 
-      // const handleGoogleLogin =  () => {
-      //   console.log("handleGoogleLogin ----------------   ");
-      //   signInWithPopup(auth, provider)
-      //     .then((result) => {
-      //       const user = result.user;
-      //       console.log("user ----------------   "+user);
-      //     }).catch((error) => {
-      //       const errorCode = error.code;
-      //       const errorMessage = error.message;
-      //       const email = error.customData.email;
-      //       const credential = GoogleAuthProvider.credentialFromError(error);
-      //       console.log("error ----------------   "+error);
-      //     });
-      // };
 
       useEffect(()=> {
         const localStorageEmail = localStorage.getItem('email')!;
