@@ -2,12 +2,9 @@ import Box from "@mui/material/Box";
 import gmailLogo from "../assets/gmail_logo.png"
 import instLogo from "../assets/instagram_logo.jpg";
 import ytLogo from "../assets/yt_logo.jpg";
-
 import "../components/footer.css";
 import { useNavigate } from "react-router-dom";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography/Typography";
-import Link from "@mui/material/Link";
 
 
 const Footer = () => {
@@ -53,27 +50,23 @@ const Footer = () => {
       }}
       component="footer">
 
-       <div  className="footer_content">
-       <Typography variant="body2" color="white" align="left" fontSize={25} fontWeight={700}>
+      <div className="footer_content">
+
+        <Typography variant="body2" color="white" align="left" fontSize={25} fontWeight={700}>
           Chat With Listener
         </Typography>
-      
+
         <div className="footer_HAC">
          <h4 className="footer_item" onClick={()=>{navigate("/")}}>Home</h4>
          <h4 className="footer_item" onClick={()=>{navigate("/about")}}>About Us</h4>
          <h4 className="footer_item" onClick={()=>{navigate("/contact")}}>Contact</h4>
          <h4 className="footer_item" onClick={()=>{navigate("/termsandconditions")}}>Terms And Conditions</h4>
          <h4 className="footer_item" onClick={()=>{navigate("/howitworks")}}>How it Works</h4>
-
-
-       </div>
+        </div>
+        
          {/* <h4 className="footer_item" onClick={()=>{navigate("/")}}>Contact</h4> */}
-
       </div>
-
-
-
-    
+      
           <div className="all_logos">
             <img className="logo" src={gmailLogo} alt="Gmail Logo" onClick={redirectToGmailChannel}/>
             {/* <img className="logo"src={metaLogo} alt="meta Logo" onClick={redirectToMetaChannel}/> */}

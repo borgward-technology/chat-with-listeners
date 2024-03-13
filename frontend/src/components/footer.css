@@ -44,3 +44,22 @@
     background-color: aquamarine;
     border-radius: 10%;
 }
+
+@media  ( max-width : 800) {
+    .footer_content{
+        background-color: green;
+        /* display: flex; */
+        justify-content: center;
+        align-items: center; 
+        flex-direction: column;
+    }
+
+    .footer_HAC{
+        background-color: aqua;
+        /* display: flex; */
+        flex-direction: column;
+        margin-left: 50px;
+        gap: 20px;
+        align-items: center; 
+    }
+}

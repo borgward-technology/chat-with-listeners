@@ -9,11 +9,12 @@ import SignUpPage from './pages/auth/signup/signup_page';
 import ChatBoxComponent from './pages/chat_box_page/chat_box_page';
 import PersonGrid from './pages/select_person_to_talk/select_person_to_talk';
 import AboutUs from './pages/about/about_us';
-import ContactUs from './pages/contact/contact_us';
+// import ContactUs from './pages/contact/contact_us';
 import Footer from './components/footer';
 import TermsAndConditions from './pages/terms_and_conditions/terms_and_conditions';
 import HowItWorks from './pages/how_it_works/how_it_works';
 import NavBar from './components/header/navbar';
+import ContactForm from './pages/contact/contact_us_form';
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
         <Route path="/termsandconditions" element={<TermsAndConditions />} /> 
 
 
-        <Route path="/contact" element={<ContactUs />} /> 
+        <Route path="/contact" element={<ContactForm />} /> 
 
         {/* element={ email === "" ? < Navigate to="/home"/> : <LandingPageComponent />}
   */}
