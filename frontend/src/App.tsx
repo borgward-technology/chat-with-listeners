@@ -1,6 +1,5 @@
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Header from './components/header';
 import LandingPageComponent from './pages/landing_page';
 import ChatNowPage from './pages/chat_now';
 import SelectDurationPage from './pages/select_duration';
@@ -14,12 +13,14 @@ import ContactUs from './pages/contact/contact_us';
 import Footer from './components/footer';
 import TermsAndConditions from './pages/terms_and_conditions/terms_and_conditions';
 import HowItWorks from './pages/how_it_works/how_it_works';
+import NavBar from './components/header/navbar';
 
 function App() {
 
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
+      <NavBar />
       <Routes>
       
       
