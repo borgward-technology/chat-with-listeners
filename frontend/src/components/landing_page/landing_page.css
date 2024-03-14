@@ -24,6 +24,7 @@
   }
 
 .landing_page_cta:hover {
+    font-weight: 700;
     background-color: #C581B3ff;
     color: black;
     transition: #020B26ff 1.0s ease-in;
@@ -51,6 +52,8 @@
     height: auto;
     margin-top: 50px;
   
+    width: 80%;
+
   }
   
   .text {
@@ -72,15 +75,15 @@
       }
 
       .image{
-        /* width: 100vw; */
-        margin-top: 50px;
-        background-color: brown;
+   
+       
         padding: 5px;
-        height:150px;
+        width: 80%;
       }
     
       .image-column,
       .text-column {
+        min-width: 80%;
         max-width: 100%; 
       }
   }

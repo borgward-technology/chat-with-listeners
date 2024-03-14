@@ -4,7 +4,7 @@
     /* justify-content: start;  */
      align-items: center;
     /* background-color: aqua; */
-    height: 90vh;
+    /* height: 90vh; */
     width: 100%;
 }
 
@@ -14,7 +14,6 @@
     border: 1px solid grey;
     border-radius: 25px;
     height: 62vh;
-    width: 80vw;
     background-color: transparent;
 }
 
@@ -27,6 +26,7 @@
 }
 
 .chat_box_container{
+  padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -57,13 +57,14 @@
   }
   
   /* Media query for responsive layout */
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     .row {
       flex-direction: column; /* Switch to column layout */
     }
   
     .text-field {
-      margin-right: 0; /* Remove margin in column layout */
+
+      
       margin-bottom: 10px; /* Add margin between text field and button */
     }
   }

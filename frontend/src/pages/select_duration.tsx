@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { db } from "../components/firebase";
 import { getDoc } from "firebase/firestore/lite";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 interface UserInterface {
     username : string;
     email : string;
@@ -55,31 +56,53 @@ const SelectDurationPage =   () => {
     }, []);
 
     return (
-        <div style={({display:"flex", flexDirection:"column", justifyContent: "center", height: "80vh", alignItems:"center"})}>
+        <div style={({
+           height:"80vh",
+           width:"100%",
+           display:"flex",
+           alignItems:'center',
+           justifyContent:"center",
+           flexDirection:"column",
+           
+           
+            })}>
 
-            <h1>
+            <h1 style={({margin:"0 20px", textAlign:"center"})}>
                 Select Duration of Chat
             </h1>
 
-           <div style={({display:"flex", flexDirection:'row', justifyContent:"space-evenly"})}>
-           <DurationCardComponent onClick={() => {setStateSelectMinute(10)}} minute={10} />
-           <DurationCardComponent onClick={() => {setStateSelectMinute(30)}} minute={30} />
-           <DurationCardComponent onClick={() => {setStateSelectMinute(60)}} minute={60} />
-           <DurationCardComponent onClick={() => {setStateSelectMinute(120)}} minute={120} />
-           <DurationCardComponent onClick={() => {setStateSelectMinute(145)}} minute={145} />
+            <div style={({height:"20px"})}></div>
+
+           <div style={({display:"flex" , flexDirection:'row',  flexWrap:"wrap", justifyContent:"space-evenly" })}>
+
+            <Button sx={({margin:"15px 20px"})} onClick={() => {setStateSelectMinute(10)}} variant="outlined">10 Minutes</Button>
+            <Button sx={({margin:"15px  20px"})} onClick={() => {setStateSelectMinute(30)}} variant="outlined">30 Minutes</Button>
+            <Button sx={({margin:"15px  20px"})} onClick={() => {setStateSelectMinute(60)}} variant="outlined">60 Minutes</Button>
+            <Button sx={({margin:"15px  20px"})} onClick={() => {setStateSelectMinute(120)}} variant="outlined">120 Minutes</Button>
+            <Button sx={({margin:"15px  20px"})} onClick={() => {setStateSelectMinute(145)}} variant="outlined">145 Minutes</Button>
+
            </div>
+
            <div style={({height:"50px"})}></div>
            {selectedMinute === -1 
-            ? <div></div> : 
-                <div onClick={() =>              
-                    displayRazorpay((selectedMinute * 30), userInformation?.username, userInformation?.email, userInformation?.phoneNumber)
-                }
-            //  style={({ display:"flex", padding:"10px 20px", background:"#282c34", color:"white", borderRadius:"8px"})}
-            style={({ padding:"10px 20px", cursor:"pointer",  background:"#282c34", paddingBottom:"10px" , color:"white", borderRadius:"8px", display: "inline-flex",  })}
-            >
-              Pay Rs. {(selectedMinute * 30)} 
-              </div> 
+            ? <div></div> :
+
+            
+            <Button onClick={() =>              
+                displayRazorpay((selectedMinute * 30), userInformation?.username, userInformation?.email, userInformation?.phoneNumber)}
+             variant="contained"
+             sx={({
+                padding:"15px 50px"
+             })}
+             >
+             Pay Rs. {(selectedMinute * 30)} 
+             </Button>
             }
+             
+            
+        
+           
+        
         </div>
     )
     function loadScript(src: string) {

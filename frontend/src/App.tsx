@@ -1,7 +1,7 @@
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import LandingPageComponent from './pages/landing_page';
-import ChatNowPage from './pages/chat_now';
+import ChatNowPage from './pages/chat_now/chat_now';
 import SelectDurationPage from './pages/select_duration';
 import PredefinedQuestions from './pages/predefined_questions/predefined_questions';
 import LoginPage from './pages/auth/login/login_page';

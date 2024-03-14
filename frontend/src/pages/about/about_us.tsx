@@ -3,18 +3,16 @@ import about_us_img from "../../assets/cwl_1.jpeg";
 
 const AboutUs = () => {
     return (
-
-
-
+ 
         <div className="about_us_container">
         
-        <div className="about_us_image-column">
+        {/* <div className="about_us_image-column"> */}
           <img
             src={about_us_img}
             alt="About_us_photo"
             className="image"
           />
-        </div>
+        {/* </div> */}
        
 
             <div className="about_us_content-container">    

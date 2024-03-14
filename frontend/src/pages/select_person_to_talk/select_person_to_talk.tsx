@@ -38,8 +38,9 @@ const handleNextButton = () => {
 
 
     return (
-        <div style={{ padding:"0px 50px", flexDirection:"column", display : "flex", justifyContent:"center", alignItems:"center",  minHeight:"80vh", minWidth:"80vw", maxWidth:"100vw"}}>
-        <Typography variant="h2">
+        <div style={{ alignItems:"center", justifyContent:"center", display:'flex', flexDirection:"column", padding:"0 20px "}}>
+        <div style={({height:"150px"})}></div>
+        <Typography variant="h4">
                             Select with Whom you want to Talk.
         </Typography>
 
@@ -68,7 +69,7 @@ const handleNextButton = () => {
         }} onClick={handleNextButton}>
             Next
         </Button>)}
-
+        <div style={({height:"50px"})}></div>
         </div>
     );
 }

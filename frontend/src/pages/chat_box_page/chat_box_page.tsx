@@ -61,12 +61,10 @@ const ChatBoxComponent = () => {
         }, [chatList]);
 
 
-    return (
+    return ( 
         <div className="main_container">
             <h1>Chat Box</h1>
-
             <div className="chat_box_container">
-
                 <div ref={chatContainerRef} className="chat_list_container">
                 {(chatList.length === 0) 
                  ?  <div style={({display:"flex", fontWeight:"700", justifyContent:"center", alignItems:"center", alignContent:"center", height:"60vh"})}>No Message yet, please start Chatting</div>  

@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import landing_photo from "../../assets/landing_page_girl_img.jpg";
 import '../landing_page/landing_page.css';
  
 const LandingPage = () => {
+
+  const navigate = useNavigate();
 
     return (
 
@@ -26,7 +29,7 @@ const LandingPage = () => {
                          Welcome to chat with listener, your dedicated platform for genuine, confidential conversations. In a world that's always buzzing, we provide  you with a unique  opportunity to express yourself freely, unfiltered.
                      </h5>
 
-                     <div  className="landing_page_cta"
+                     <div  className="landing_page_cta" onClick={() => navigate('/chatnow')}
                        >
                         Chat Now
                     </div>

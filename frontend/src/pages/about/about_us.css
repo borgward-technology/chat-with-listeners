@@ -10,7 +10,7 @@
     height: auto;
   }
   
-  .content-container {
+  .content-container { 
     margin: 0 80px ;
     flex: 1;
   }
@@ -42,25 +42,28 @@
   
   @media (max-width: 800px) {
     .about_us_container {
-        width: 100%;
-        background-color: white;
-        display: flex;
+     
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        border: none;
+        display: flex;
+        width: 100vw;
+      }
+
+      .image{
+        width: 80%;
       }
 
       .about_us_image-column{
-        margin-top: 50px;
-        height:150px;
+      
+ 
+        align-items: center;
+        justify-content: center;
       }
     
-      .about_us_image-column,
+   
       .about_us_content-container {
         max-width: 100%; 
+        text-align: center;
       }
   }
   
