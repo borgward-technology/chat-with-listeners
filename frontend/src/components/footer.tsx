@@ -39,17 +39,22 @@ const Footer = () => {
   return (
 
 
-    <Box
-      sx={{
-        display:"flex",
-        alignItems:"center",
-        color:"white",
-        backgroundColor: "#020B26ff",
-        justifyContent:"space-between",
-        p: 3,
-      }}
-      component="footer">
+    // <Box
+    //   sx={{
+    //     display:"flex",
+    //     alignItems:"center",
+    //     color:"white",
+    //     backgroundColor: "#020B26ff",
+    //     justifyContent:"space-between",
+    //     p: 3,
+    //   }}
+    //   component="footer"> 
+    //   </Box>
 
+
+    <div className="footer_main">
+
+   
       <div className="footer_content">
 
         <Typography variant="body2" color="white" align="left" fontSize={25} fontWeight={700}>
@@ -73,9 +78,8 @@ const Footer = () => {
             <img className="logo" src={instLogo} alt="insta Logo" onClick={redirectToInstagramChannel}/>
             <img className="logo" src={ytLogo} alt="yt Logo" onClick={redirectToYouTubeChannel}/>
           </div>
-   
-    </Box>
-
+  
+  </div>
 
   );
 }

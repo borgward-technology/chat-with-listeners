@@ -3,7 +3,7 @@ import freedomSpeakMind from "../../assets/cwl_5.jpeg";
 import chatBoxImage from "../../assets/cwl_2.jpeg";
 import "../landing_page/landing_page_2.css";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; 
 import ContentWithImage from "../card_with_text_component";
 
 

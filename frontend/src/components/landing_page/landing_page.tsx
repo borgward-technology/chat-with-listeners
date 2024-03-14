@@ -1,6 +1,6 @@
 import landing_photo from "../../assets/landing_page_girl_img.jpg";
 import '../landing_page/landing_page.css';
-
+ 
 const LandingPage = () => {
 
     return (

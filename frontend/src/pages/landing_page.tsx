@@ -7,7 +7,7 @@ const LandingPageComponent = () => {
     return (
         // style={({display: "flex", flexDirection:"column"})}
 
-        <div style={({width:"100%", margin:0, padding:0})}>
+        <div style={({  width:"100%", margin:0, padding:0})}>
             <LandingPage />
             <LandingPageContentTwo/>
         </div>

@@ -14,7 +14,7 @@ const ContentWithImage : React.FC<ContentWithImageComponent> = ({heading, subhea
                 margin:"20px 0",
                 alignItems:"center",
                 justifyContent:"center",
-                width: ( shouldVertical ? "50%" : "70%"),
+                width: ( shouldVertical ? "90%" : "70%"),
                 '&:hover': { boxShadow: 'md', borderColor: 'neutral.outlinedHoverBorder' },
             }}>
                 
