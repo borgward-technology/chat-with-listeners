@@ -91,7 +91,8 @@ const ImageMarked = styled('span')(({ theme }) => ({
 export default function ButtonBaseDemo() {
     const navigate = useNavigate();
     const handleChatButtonClick = (title:string) => {
-        if(title === "chat"){
+      console.log("title  ----------    "+title);
+        if(title.toLowerCase() === "chat"){
             navigate("/selecttype");
         } else{
             alert("Please select ")

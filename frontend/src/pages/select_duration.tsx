@@ -133,7 +133,7 @@ async function displayRazorpay(amt : number,  username : string | undefined, ema
     }
     //TODO  get username and password information - create function
     const options = {
-        key: "rzp_live_LnEKJ9oG6oOIo7", // Enter the Key ID generated from the Dashboard
+        key: "rzp_live_Jx713b19r7hQWE", // Enter the Key ID generated from the Dashboard
         amount: paisa,
         currency: "INR",
         name: username,
