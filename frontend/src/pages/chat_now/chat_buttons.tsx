@@ -92,10 +92,10 @@ export default function ButtonBaseDemo() {
     const navigate = useNavigate();
     const handleChatButtonClick = (title:string) => {
       console.log("title  ----------    "+title);
-        if(title.toLowerCase() === "chat"){
+        if(title.toLowerCase() === "chat" ||  title === "Chat"){
             navigate("/selecttype");
         } else{
-            alert("Please select ")
+            alert("Please select Chat, Calling will be available soon.")
         }
     }
 
