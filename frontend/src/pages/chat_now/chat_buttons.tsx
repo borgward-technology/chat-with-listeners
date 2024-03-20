@@ -89,7 +89,9 @@ const ImageMarked = styled('span')(({ theme }) => ({
 }));
 
 export default function ButtonBaseDemo() {
+
     const navigate = useNavigate();
+
     const handleChatButtonClick = (title:string) => {
       console.log("title  ----------    "+title);
         if(title.toLowerCase() === "chat" ||  title === "Chat"){
@@ -98,8 +100,6 @@ export default function ButtonBaseDemo() {
             alert("Please select Chat, Calling will be available soon.")
         }
     }
-
-
 
     const [isSmallScreen, setIsSmallScreen] = React.useState(window.innerWidth < 800);
 
