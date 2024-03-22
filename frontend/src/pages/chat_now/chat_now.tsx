@@ -1,14 +1,21 @@
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ButtonBaseDemo from "./chat_buttons";
 
 const ChatNowPage = () => {
 
+
+
    
     return (
+
+
         <div style={({display:"flex", marginTop:"50px",  flexDirection:"column", justifyContent: "center", height: "80vh", alignItems:"center"})}>
+          
             <h1 style={({color:"black", textAlign:"center"})}> Please Select below option of Conversation</h1>
+
             <div style={({height:"20px"})}></div>
+
         <ButtonBaseDemo/>
     
            {/* <div style={{display:"flex",  flexDirection:"row"}}>

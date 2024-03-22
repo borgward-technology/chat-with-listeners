@@ -1,5 +1,6 @@
 import {  useEffect, useRef, useState } from "react";
 import "./chat_box_page.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 type DateTime = {
@@ -12,9 +13,15 @@ interface ChatContent {
     sendAt : DateTime,
 }
 const ChatBoxComponent = () => {
-
+    
+    const navigate = useNavigate();
+    const location = useLocation();
+    const chatBoxTime = location.state?.chatBoxTime;
     const [inputValue, setText] = useState("");
     const [chatList, setAddToChatList] = useState<ChatContent[]>([]);
+
+    console.log("chatBoxTime   ----    "+chatBoxTime);
+    
 
     const handleOnChangeEvent = (event : React.ChangeEvent<HTMLInputElement>) => {
         setText(event.target.value);
@@ -26,7 +33,7 @@ const ChatBoxComponent = () => {
         const currentHours: number = currentTime.getHours();
         const currentMinutes: number = currentTime.getMinutes();
         const currentSeconds: number = currentTime.getSeconds();
-        console.log(`hourse -> ${currentHours} Minutes -> ${currentMinutes} seconds -> ${currentSeconds}`)
+        console.log(`hourse -> ${currentHours} Minutes -> ${currentMinutes} seconds -> ${currentSeconds}`);
         const dateNow : DateTime = {
             date : currentDate,
             time : `${currentHours}:${currentMinutes}`,
@@ -35,12 +42,14 @@ const ChatBoxComponent = () => {
             message: inputValue,
             sendAt:dateNow
         }
-        console.log(`newMessage   ->>    ${newMessage}`);
-        setAddToChatList([...chatList, newMessage]);
-        setText('');
+
+        if(newMessage.message !== "") {
+            setAddToChatList([...chatList, newMessage]);
+            setText('');
+        }
+        
     }
 
-        // Function to handle Enter key press
         const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -55,15 +64,37 @@ const ChatBoxComponent = () => {
             }
         };
 
-            // Scroll to bottom when chatList changes
+        const [secondsLeft, setSecondsLeft] = useState<number>(chatBoxTime * 60);
+
         useEffect(() => {
             scrollToBottom();
-        }, [chatList]);
+        });
+
+        useEffect(() => {   
+           if(chatBoxTime === 1){
+            const timer = setInterval(() => {
+                setSecondsLeft((prevSeconds) => prevSeconds - 1);
+            }, 1000);
+          return () => clearInterval(timer);
+        }
+        }, []);
+
+        useEffect(() => {
+           if(chatBoxTime === 1){
+            const timer = setTimeout(() => {
+                alert('1 Minute is completed, you will get redirected to home page.'); 
+                navigate('/');
+              }, 60000);
+            return () => clearTimeout(timer);
+           }
+        }, []);
+
 
 
     return ( 
-        <div className="main_container">
-            <h1>Chat Box</h1>
+        <div className="main_container" style={({marginTop:"150px"})}>
+           {/* { secondsLeft !== null ? <h1>{secondsLeft}</h1> : <div></div>} */}
+           {(chatBoxTime === 1 ||chatBoxTime === 10 ||chatBoxTime === 30 ||chatBoxTime === 60 || chatBoxTime === 120 || chatBoxTime === 145) && <p>Timer: {secondsLeft} seconds</p>}
             <div className="chat_box_container">
                 <div ref={chatContainerRef} className="chat_list_container">
                 {(chatList.length === 0) 
@@ -75,9 +106,7 @@ const ChatBoxComponent = () => {
 
                 <div className="container">
                     <div className="row">
-                     
                         <input  value={inputValue} onChange={handleOnChangeEvent} onKeyDown={handleKeyPress} type="text" className="text-field" placeholder="Enter your message" />
-                        
                         <button className="send-button"  onClick={addChatToList}>Send</button>
                     </div>
                 </div>

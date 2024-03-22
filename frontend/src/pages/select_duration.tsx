@@ -55,6 +55,12 @@ const SelectDurationPage =   () => {
     fetchUser();
     }, []);
 
+
+    const handleClick = (chatBoxTime: number) => {
+      // Navigate to '/chatbox' with chatBoxTime as state
+      navigate('/chatbox', { state : { chatBoxTime }});
+    };
+
     return (
         <div style={({
            height:"80vh",
@@ -75,6 +81,7 @@ const SelectDurationPage =   () => {
 
            <div style={({display:"flex" , flexDirection:'row',  flexWrap:"wrap", justifyContent:"space-evenly" })}>
 
+           <Button sx={({margin:"15px 20px"})} onClick={ () => handleClick(1)} variant="outlined">1 Minute (Free)</Button>
             <Button sx={({margin:"15px 20px"})} onClick={() => {setStateSelectMinute(10)}} variant="outlined">10 Minutes</Button>
             <Button sx={({margin:"15px  20px"})} onClick={() => {setStateSelectMinute(30)}} variant="outlined">30 Minutes</Button>
             <Button sx={({margin:"15px  20px"})} onClick={() => {setStateSelectMinute(60)}} variant="outlined">60 Minutes</Button>
@@ -89,7 +96,7 @@ const SelectDurationPage =   () => {
 
             
             <Button onClick={() =>              
-                displayRazorpay((selectedMinute * 30), userInformation?.username, userInformation?.email, userInformation?.phoneNumber)}
+                displayRazorpay((selectedMinute * 30), selectedMinute,  userInformation?.username, userInformation?.email, userInformation?.phoneNumber)}
              variant="contained"
              sx={({
                 padding:"15px 50px"
@@ -119,7 +126,7 @@ const SelectDurationPage =   () => {
         });
     }
 
-async function displayRazorpay(amt : number,  username : string | undefined, email: string | undefined, phoneNumber:number | undefined) {
+async function displayRazorpay(amt : number, selectedMinute: number,  username : string | undefined, email: string | undefined, phoneNumber:number | undefined) {
 
     const paisa = amt * 100;
 
@@ -174,7 +181,7 @@ async function displayRazorpay(amt : number,  username : string | undefined, ema
         navigate("/")
         return;
     } else{
-        navigate("/chatbox")
+        handleClick(selectedMinute);
     }
 }
 

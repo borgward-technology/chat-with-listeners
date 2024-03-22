@@ -2,6 +2,7 @@ import  { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import "./navbar.css";
+import BasicSelect from "./dropdown_for_navbar";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -58,7 +59,12 @@ const Navbar = () => {
               >
                 How It Works
               </NavLink>
+              
+              
             </li>
+            <li className="nav__item">
+                <BasicSelect></BasicSelect>
+              </li>
             {/* <li className="nav__item">
               <NavLink
                 to="/location"
@@ -68,7 +74,9 @@ const Navbar = () => {
                 Location
               </NavLink>
             </li> */}
-            <li className="nav__item">
+
+            <li className="nav__item">  
+              
               <NavLink to="/chatnow" className="nav__cta"
                 style={({textDecoration:"none"})}>
                 Chat Now

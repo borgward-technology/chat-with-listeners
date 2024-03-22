@@ -3,7 +3,7 @@
 .header {
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 0; 
     left: 0;
     background-color: #020B26ff;
     z-index: 100;
@@ -146,5 +146,6 @@
     .nav__list {
       flex-direction: row;
       column-gap: 2.5rem;
+      align-items: center;
     }
   }
