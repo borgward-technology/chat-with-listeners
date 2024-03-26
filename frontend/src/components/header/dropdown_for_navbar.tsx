@@ -5,21 +5,21 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-export default function BasicSelect() {
-  const [age, setAge] = React.useState('');
+export default function SelectCountryComponent() {
+  const [country, setCountry] = React.useState('');
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setCountry(event.target.value as string);
   };
 
   return (
-    <Box sx={{ minWidth: 150,  }}>
+    <Box sx={{ minWidth: 150, borderColor:'white', border:'white'}}>
       <FormControl fullWidth >
         <InputLabel id="demo-simple-select-label"   sx={{ color: 'white' }} >Country</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={country}
           label="Age"
           onChange={handleChange}
           sx={{borderColor: 'white', color:'white'}}

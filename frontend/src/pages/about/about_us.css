@@ -10,7 +10,7 @@
     height: auto;
   }
   
-  .content-container { 
+  .content-container {  
     margin: 0 80px ;
     flex: 1;
   }
@@ -38,6 +38,9 @@
     align-items: center;
   }
 
+  .about_us_image{
+    width: 40%;
+  }
 
   
   @media (max-width: 800px) {
@@ -49,7 +52,7 @@
         width: 100vw;
       }
 
-      .image{
+      .about_us_image{
         width: 80%;
       }
 

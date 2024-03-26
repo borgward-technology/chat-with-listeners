@@ -45,6 +45,16 @@
   }
   
   @media screen and (max-width: 1050px) {
+
+    .nav__logo {
+      color: #BEBFD4ff;
+      transition: color 0.4s;
+      font-weight: 800;
+      font-size: 15px;
+      font-family: var(--second-font);
+    }
+    
+
     .nav__menu {
       position: fixed;
       top: 0;
@@ -60,6 +70,9 @@
   }
   
   @media screen and (max-width: 300px) {
+
+
+
     .nav__menu {
       padding: 4rem 1rem 2rem;
     }
@@ -135,6 +148,10 @@
     transition: right 0.4s;
   }
   @media screen and (min-width: 1050px) {
+
+
+
+
     .nav {
       height: calc(var(--header-height) + 1rem);
     }

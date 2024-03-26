@@ -2,7 +2,7 @@ import  { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import "./navbar.css";
-import BasicSelect from "./dropdown_for_navbar";
+import SelectCountryComponent from "./dropdown_for_navbar";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -63,7 +63,7 @@ const Navbar = () => {
               
             </li>
             <li className="nav__item">
-                <BasicSelect></BasicSelect>
+                <SelectCountryComponent></SelectCountryComponent>
               </li>
             {/* <li className="nav__item">
               <NavLink

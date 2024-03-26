@@ -15,12 +15,12 @@ const ContactForm = () => {
       console.log("email ->  "+email);
       console.log("message ->  "+message);
       e.preventDefault();
-
     };
     
     return (
         <Box
             sx={{
+              marginTop:'50px',
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
