@@ -11,6 +11,7 @@ type DateTime = {
 interface ChatContent {
     message : string,
     sendAt : DateTime,
+    fromUser : boolean,
 }
 const ChatBoxComponent = () => {
     
@@ -19,20 +20,27 @@ const ChatBoxComponent = () => {
     const chatBoxTime = location.state?.chatBoxTime;
     const [inputValue, setText] = useState("");
     const [chatList, setAddToChatList] = useState<ChatContent[]>([]);
-
-    console.log("chatBoxTime   ----    "+chatBoxTime);
-    
+    const [selectedResponse, setSelectedResponse] = useState('');    
 
     const handleOnChangeEvent = (event : React.ChangeEvent<HTMLInputElement>) => {
         setText(event.target.value);
     }
 
     const addChatToList = () => {
+        const responses = [
+            "Ok.",
+            "I got you.",
+            "Yes",
+            "Hmm...",
+            
+          ];
         const currentDate: Date = new Date();
         const currentTime: Date = new Date();
         const currentHours: number = currentTime.getHours();
         const currentMinutes: number = currentTime.getMinutes();
         const currentSeconds: number = currentTime.getSeconds();
+
+
         console.log(`hourse -> ${currentHours} Minutes -> ${currentMinutes} seconds -> ${currentSeconds}`);
         const dateNow : DateTime = {
             date : currentDate,
@@ -40,14 +48,38 @@ const ChatBoxComponent = () => {
         }
         const newMessage : ChatContent = {
             message: inputValue,
-            sendAt:dateNow
+            sendAt:dateNow,
+            fromUser: true,
         }
 
+        const randomIndex = Math.floor(Math.random() * responses.length - 1);
+    console.log("selectedResponse   ----    "+selectedResponse);
+
+        setSelectedResponse(responses[randomIndex]);
+
+    console.log("selectedResponse   ----    "+selectedResponse);
+
+
         if(newMessage.message !== "") {
-            setAddToChatList([...chatList, newMessage]);
-            setText('');
+            setAddToChatList( chatList => [...chatList, newMessage]);
         }
-        
+
+       
+
+         // After 3 seconds, add another chat content item
+        setTimeout(() => {
+            const botMessage : ChatContent = {
+                message:selectedResponse,
+                sendAt:dateNow,
+                fromUser: false,
+            }
+
+            if(selectedResponse !== ''){
+                setAddToChatList(  chatList => [...chatList, botMessage]);
+            }
+            
+        }, 3000);
+        setText('');
     }
 
         const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -98,9 +130,10 @@ const ChatBoxComponent = () => {
             <div className="chat_box_container">
                 <div ref={chatContainerRef} className="chat_list_container">
                 {(chatList.length === 0) 
-                 ?  <div style={({display:"flex", fontWeight:"700", justifyContent:"center", alignItems:"center", alignContent:"center", height:"60vh"})}>No Message yet, please start Chatting</div>  
+                 ?  <div style={({display:"flex", width:"100%", fontWeight:"700", justifyContent:"center", alignItems:"center", alignContent:"center", height:"60vh"})}>No Message yet, please start Chatting</div>  
                  :  chatList.map((item, index) => (
-                        <div key={index} className="list_item">{  item.message}</div>
+                
+                            <div key={index} style={({ color:item.fromUser ? 'black':'white',  float:  item.fromUser ? 'right' : 'left',  clear: 'both', overflow:'hidden', backgroundColor: item.fromUser ? "aqua" : "gray",  margin:"10px 20px", padding:"10px 20px", borderRadius:"8px 8px 0 8px"})}>{item.message}</div>
                 ))}
                 </div>
 
