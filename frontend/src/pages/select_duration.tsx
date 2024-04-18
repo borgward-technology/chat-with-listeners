@@ -96,13 +96,13 @@ const SelectDurationPage =   () => {
 
             
             <Button onClick={() =>              
-                displayRazorpay((selectedMinute * 30), selectedMinute,  userInformation?.username, userInformation?.email, userInformation?.phoneNumber)}
+                displayRazorpay((selectedMinute * 10), selectedMinute,  userInformation?.username, userInformation?.email, userInformation?.phoneNumber)}
              variant="contained"
              sx={({
                 padding:"15px 50px"
              })}
              >
-             Pay Rs. {(selectedMinute * 30)} 
+             Pay Rs. {(selectedMinute * 10)} 
              </Button>
             }
              

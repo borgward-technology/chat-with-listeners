@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 
 const app = express();
@@ -14,5 +16,7 @@ app.use(express.json({ extended: false }));
 app.use("/", require("./routes/home"));
 // route included
 app.use("/payment", require("./routes/payment"));
+
+app.use("/test", require("./routes/test"));
 
 app.listen(port, () => console.log(`server started on port ${port}`));
