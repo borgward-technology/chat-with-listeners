@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import gmailLogo from "../assets/gmail_logo.png"
 import instLogo from "../assets/instagram_logo.jpg";
 import ytLogo from "../assets/yt_logo.jpg";
@@ -16,15 +15,15 @@ const Footer = () => {
     window.open(youtubeChannelURL, '_blank');
   };
 
-  const redirectToTermsAndConditions = () => {
-    const youtubeChannelURL = 'https://www.youtube.com/channel/UCK7el2hWiSAbrDkvfkEIZgg';
-    window.open(youtubeChannelURL, '_blank');
-  };
+  // const redirectToTermsAndConditions = () => {
+  //   const youtubeChannelURL = 'https://www.youtube.com/channel/UCK7el2hWiSAbrDkvfkEIZgg';
+  //   window.open(youtubeChannelURL, '_blank');
+  // };
 
-  const redirectToMetaChannel = () => {
-    const youtubeChannelURL = 'https://www.youtube.com/channel/YOUR_CHANNEL_ID';
-    window.open(youtubeChannelURL, '_blank');
-  };
+  // const redirectToMetaChannel = () => {
+  //   const youtubeChannelURL = 'https://www.youtube.com/channel/YOUR_CHANNEL_ID';
+  //   window.open(youtubeChannelURL, '_blank');
+  // };
 
   const redirectToInstagramChannel = () => {
     const youtubeChannelURL = 'https://www.instagram.com/listenerwithchat/';

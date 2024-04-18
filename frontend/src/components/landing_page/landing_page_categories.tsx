@@ -1,9 +1,4 @@
 import { Grid, Typography } from '@mui/material';
-import { red } from '@mui/material/colors';
-
-
-
-
 
 const LandingPageCategories: React.FC = () => {
 

@@ -187,41 +187,41 @@ async function displayRazorpay(amt : number, selectedMinute: number,  username :
 
 }
 
-interface durationTimeInMinute {
-    minute : number;
-    onClick : React.MouseEventHandler<HTMLDivElement>;
-}
+// interface durationTimeInMinute {
+//     minute : number;
+//     onClick : React.MouseEventHandler<HTMLDivElement>;
+// }
 
-interface HoursAndMinutes {
-    hr : number;
-    mn : number;
-}
+// interface HoursAndMinutes {
+//     hr : number;
+//     mn : number;
+// }
 
-const getHoursAndNumbersFromMinutes = (minutes : number) : HoursAndMinutes  =>  {
-    const hr = Math.floor(minutes / 60);
-    const mn = minutes % 60;
-    return { hr, mn };
-};
+// const getHoursAndNumbersFromMinutes = (minutes : number) : HoursAndMinutes  =>  {
+//     const hr = Math.floor(minutes / 60);
+//     const mn = minutes % 60;
+//     return { hr, mn };
+// };
 
 
-var finalMinute : string;
-const DurationCardComponent : React.FC<durationTimeInMinute> = ({minute, onClick}) => {
+// var finalMinute : string;
+// const DurationCardComponent : React.FC<durationTimeInMinute> = ({minute, onClick}) => {
 
     
-    if(minute >= 60 ){
-        const {hr, mn} =  getHoursAndNumbersFromMinutes(minute);
-        finalMinute = `${hr} hour ${ mn === 0 ? "" : `${mn} minutes`}`;
-    } else {
-        finalMinute = `${minute} minutes`;
-    }
+//     if(minute >= 60 ){
+//         const {hr, mn} =  getHoursAndNumbersFromMinutes(minute);
+//         finalMinute = `${hr} hour ${ mn === 0 ? "" : `${mn} minutes`}`;
+//     } else {
+//         finalMinute = `${minute} minutes`;
+//     }
 
 
-    return (
-        <div onClick={onClick} style={({ cursor:"pointer", margin:"10px 8px", backgroundColor:"#282c34", borderRadius:"15px", border:"2px solid black", color:"white", padding:"10px 15px",   display: "inline-flex", justifyContent:"center", alignItems:"center"})}>
-        {finalMinute} 
-    </div>
-    )
-}
+//     return (
+//         <div onClick={onClick} style={({ cursor:"pointer", margin:"10px 8px", backgroundColor:"#282c34", borderRadius:"15px", border:"2px solid black", color:"white", padding:"10px 15px",   display: "inline-flex", justifyContent:"center", alignItems:"center"})}>
+//         {finalMinute} 
+//     </div>
+//     )
+// }
 
 
 

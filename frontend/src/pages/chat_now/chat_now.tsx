@@ -1,5 +1,4 @@
 
-import { useLocation, useNavigate } from "react-router-dom";
 import ButtonBaseDemo from "./chat_buttons";
 
 const ChatNowPage = () => {

@@ -2,7 +2,6 @@
 import "../how_it_works/how_it_works.css";
 import CongratCard from "./components/card_component";
 import overlayImage from "../../assets/cwl_7.jpeg";
-import ContentWithImage from "../../components/card_with_text_component";
 import Card from "@mui/joy/Card";
 import AspectRatio from "@mui/joy/AspectRatio";
 import CardContent from "@mui/material/CardContent";
@@ -66,7 +65,7 @@ const HowItWorks = () => {
                 <h2 style={({textAlign:"center"})}>Introduction and Establishing Trust:</h2>
                 <ul >
                     {bulletPoints.map((point, index) => (
-                        <BulletPoint text={point}></BulletPoint>  
+                        <BulletPoint key={index} text={point}></BulletPoint>  
                     ))}
                 </ul>
             </div>
@@ -115,7 +114,7 @@ const HowItWorks = () => {
             <div className="how_to_works_cards">
 
             {listOfCards.map((card, index) => (
-                <CongratCard title={card.title}  content={card.content}></CongratCard>
+                <CongratCard key={index} title={card.title}  content={card.content}></CongratCard>
             ))}
             </div>
         </div>
