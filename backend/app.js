@@ -17,6 +17,6 @@ app.use("/", require("./routes/home"));
 // route included
 app.use("/payment", require("./routes/payment"));
 
-app.use("/test", require("./routes/test"));
+app.use("/test", require("./routes/testing_backend"));
 
 app.listen(port, () => console.log(`server started on port ${port}`));
