@@ -15,6 +15,7 @@ import TermsAndConditions from './pages/terms_and_conditions/terms_and_condition
 import HowItWorks from './pages/how_it_works/how_it_works';
 import NavBar from './components/header/navbar';
 import ContactForm from './pages/contact/contact_us_form';
+import PrivacyPolicies from './pages/terms_and_conditions/privacy_policies';
 
 function App() {
 
@@ -32,7 +33,8 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
 
         <Route path="/termsandconditions" element={<TermsAndConditions />} /> 
-
+        
+        <Route path="/privacy" element={<PrivacyPolicies />} /> 
 
         <Route path="/contact" element={<ContactForm />} /> 
 

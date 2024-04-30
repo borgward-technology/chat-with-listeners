@@ -65,6 +65,7 @@ const Footer = () => {
          <h4 className="footer_item" onClick={()=>{navigate("/about")}}>About Us</h4>
          <h4 className="footer_item" onClick={()=>{navigate("/contact")}}>Contact</h4>
          <h4 className="footer_item" onClick={()=>{navigate("/termsandconditions")}}>Terms And Conditions</h4>
+         <h4 className="footer_item" onClick={()=>{navigate("/privacy")}}>Privacy policies</h4>
          <h4 className="footer_item" onClick={()=>{navigate("/howitworks")}}>How it Works</h4>
         </div>
         

@@ -40,6 +40,7 @@ const SelectDurationPage =   () => {
                     setUserInformation(userInformation);
 
                     return userInformation;
+
                 } else {
                 console.log('User not found.');
                 return null;
@@ -68,10 +69,8 @@ const SelectDurationPage =   () => {
            display:"flex",
            alignItems:'center',
            justifyContent:"center",
-           flexDirection:"column",
-           
-           
-            })}>
+           flexDirection:"column",           
+        })}>
 
             <h1 style={({margin:"0 20px", textAlign:"center"})}>
                 Select Duration of Chat
@@ -140,7 +139,8 @@ async function displayRazorpay(amt : number, selectedMinute: number,  username :
     }
     //TODO  get username and password information - create function
     const options = {
-        key: "rzp_live_Jx713b19r7hQWE", // Enter the Key ID generated from the Dashboard
+        key: "rzp_test_BuQEG8lXInrQoH",
+        // "rzp_live_Jx713b19r7hQWE", // Enter the Key ID generated from the Dashboard
         amount: paisa,
         currency: "INR",
         name: username,
@@ -148,13 +148,15 @@ async function displayRazorpay(amt : number, selectedMinute: number,  username :
         // image: { logo },
         // order_id: order_id,
         handler: async function (response: { razorpay_payment_id: string; razorpay_order_id: string; razorpay_signature: string; }) {
+            
             const data = {
                 // orderCreationId: order_id,
                 razorpayPaymentId: response.razorpay_payment_id,
                 razorpayOrderId: response.razorpay_order_id,
                 razorpaySignature: response.razorpay_signature,
             };
-            console.log("data "+data);
+            console.log("data "+data.razorpayOrderId);
+            handleClick(selectedMinute);
             // alert(result.data.msg);
         },
         prefill: {
@@ -171,20 +173,24 @@ async function displayRazorpay(amt : number, selectedMinute: number,  username :
 
     paymentObject.open();
 
-    const result = await axios.post(`http://localhost:5000/payment/${paisa}`,  {
+    //http://localhost:5000/payment/
+    const result = await axios.post(`http://chat-with-listener-4-env.eba-mmfmyhdn.ap-south-1.elasticbeanstalk.com/payment/${paisa}`,  {
         "amount" : paisa,
     });
-    
-    console.log("result ----------   "+ result);
+
+    console.log("result ----------   "+ result.data);
+    console.log("result status ----------   "+ result.status);
+    console.log("result statusText ----------   "+ result.statusText);
+
     if (result.status !== 200) {
         alert("Payment failed");
         navigate("/")
         return;
     } else{
-        handleClick(selectedMinute);
+        // console.log("Redirect to chatbox page.....");
+        // handleClick(selectedMinute);
     }
-}
-
+  }
 }
 
 // interface durationTimeInMinute {
